@@ -1,0 +1,224 @@
+
+% \documentclass[final,3p,times]{elsarticle}
+% 若要做成两列
+% \documentclass[final,3p,times,twocolumn]{elsarticle}
+\documentclass[11pt,a4paper,twocolumn]{article}
+% 数学公式包
+\usepackage{amsmath}
+\usepackage{amssymb}
+% 图片包
+\usepackage{graphicx}
+% 参考文献包
+\usepackage[numbers]{natbib}
+% 解决自动换行
+\usepackage{tabularx}
+% 三线表
+\usepackage{booktabs}
+% 绘制表格中更细的线
+\usepackage{multirow}
+% 绘制表格中竖线
+\usepackage{makecell}
+% 页边距包
+\usepackage{geometry}
+% \geometry{papersize={20cm,15cm}} 纸张大小
+% \geometry{left=1cm,right=2cm,top=3cm,bottom=4cm} 页边距
+% 页眉页脚
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\lhead{} % 页眉左边
+\chead{} % 页眉中间
+\rhead{} % 页眉右边
+\lfoot{} % 页脚左边
+\cfoot{\thepage} % 页脚中间
+\rfoot{} % 页脚右边
+\renewcommand{\headrulewidth}{0.4pt}  % 页眉与正文之间0.4pt横线分割
+\renewcommand{\headwidth}{\textwidth}
+\renewcommand{\footrulewidth}{0pt}
+
+% 行间距 字号的1.5倍
+\usepackage{setspace}
+\onehalfspacing
+% 段间距 在原有基础上增加.4em 若要减小，改为负数即可
+\addtolength{\parskip}{.4em} 
+
+%中英文摘要
+\newcommand{\enabstractname}{Abstract}
+\newcommand{\cnabstractname}{摘要}
+\newenvironment{enabstract}{%
+\par\small
+\noindent\mbox{}\hfill{\bfseries\enabstractname}\hfill\mbox{}\par
+\vskip 2.5ex}{\par\vskip2.5ex}
+\newenvironment{cnabstract}{%
+	\par\small
+	\noindent\mbox{}\hfill{\bfseries\cnabstractname}\hfill\mbox{}\par
+	\vskip 2.5ex}{\par\vskip2.5ex}
+% \begin{document}
+% 	\maketitle
+% 	\thispagestyle{empty}
+% 	\newpage
+% 	\setcounter{page}{1}
+% 	\begin{cnabstract}
+% 		中文摘要
+ 
+% 		\noindent{\textbf{关键词：}关键词一\quad  关键词二\quad   关键词三\quad }
+% %		\keywords{一\quad  二\quad   三\quad  }
+% 	\end{cnabstract}
+ 
+% 	\begin{enabstract}
+% 		abstract
+ 
+% 		\noindent{\textbf{keywords：}one ;\quad two;\quad three;}
+% 	\end{enabstract}
+% 	\newpage
+% \end{document}
+
+\begin{document}
+% \frontmatter：关闭章节序号， 页码使用罗马数字;
+% \mainmatter：开启章节序号计数，重置页码，页码使用阿拉伯数字;
+% \appendix：重置章节序号计数， 章节序号使用字母，对页码没有影响；
+% \backmatter：关闭章节序号，对页码没有影响。
+% \begin{frontmatter}
+  
+% \end{frontmatter}
+% 生成标题
+\title{my title}
+\author{heishuini}
+% \address{this is my introduce}
+\date{}
+\maketitle    
+
+% 生成目录
+    \tableofcontents 
+% 生成子标题和段落
+    \section{Hello hsn1} hsn is good1
+        \subsection{Hello hsn2} hsn is good2
+            \subsubsection{Hello hsn3} hsn is good3
+                \paragraph{para hsn1} para hsn..1
+                    \subparagraph{para2 hsn} para hsn..2
+        \subsection{Hello hsn2} 
+            your content
+            \paragraph{para hsn1} nihao 
+% 换行效果 空一行：另起段落； \\ 强制换行
+    \subsection{math}
+
+% 数学公式 
+Einstein 's $E=mc^2$. %行内
+\[ E=mc^2. \] % 单独成行，不进行标号 
+\begin{equation}
+E=mc^2. % 单独成行，有标号
+\end{equation}
+\[ z = r\cdot e^{2\pi i}. \]
+% 矩阵
+  Matrix (lcr here means left, center or right for each column)
+   \[
+     \left[
+       \begin{array}{lcr}
+         a1 & b22 & c333 \\
+         d444 & e555555 & f6
+       \end{array}
+     \right]
+   \]
+% \quad 是空格
+   \[ \begin{pmatrix} a&b\\c&d \end{pmatrix} \quad
+   \begin{bmatrix} a&b\\c&d \end{bmatrix} \quad
+   \begin{Bmatrix} a&b\\c&d \end{Bmatrix} \quad
+   \begin{vmatrix} a&b\\c&d \end{vmatrix} \quad
+   \begin{Vmatrix} a&b\\c&d \end{Vmatrix} \]
+
+   Marry has a little matrix $ ( \begin{smallmatrix} a&b\\c&d \end{smallmatrix} ) $.
+
+% 等式
+Equations(here \& is the symbol for aligning different rows)
+\begin{align}
+   a+b&=c\\
+   d&=e+f+g
+\end{align}
+% 括号等式 aligned对齐 不编号可以带*版本
+\[
+   \left\{
+     \begin{aligned}
+       &a+b=c\\
+       &d=e+f+g
+     \end{aligned}
+   \right.
+\]
+% 不对齐 multline*不编号
+\begin{multline}
+  x = a+b+c+{} \\
+  d+e+f+g
+  \end{multline}
+% 分段函数
+\[ y= \begin{cases}
+  -x,\quad x\leq 0 \\
+  x,\quad x>0
+  \end{cases} \]
+
+% 插入图片
+\subsection{myFigure}
+  \begin{figure}[h] % 可选h(here就这里) t(top 页顶) b(bottom 页尾) p(float page专门放专栏)
+    \centering  
+    \includegraphics[width=0.50in,height=0.50in]{figure1.jpg} 
+    \caption{figure title}  % 插图标题
+  \end{figure}
+
+\subsection{myTable}
+% 表格1
+\subsubsection{Table1}
+\begin{tabular}{|c|c|}
+    aaa & b \\
+    c & ddddd\\
+  \end{tabular}
+
+% 表格2
+\subsubsection{Table2}
+\begin{tabular}{c|cc}
+  \Xhline{2pt}
+  variable1 & \multicolumn{2}{c}{variable2} \\
+  \Xcline{2-3}{0.4pt}
+  r & l & s \\
+  \Xhline{1pt}
+  1.00 & 6.28 & 6.28 \\
+  2.00 & 12.57 & 12.57 \\
+  3.00 & 18.85 & 28.37 \\
+  \Xhline{2pt}
+  \end{tabular} 
+
+% 表格3
+\subsubsection{Table3}
+\begin{tabular}{*{6}{c}}
+  \toprule
+  \multirow{2}*{name} & \multicolumn{2}{c}{fruit} & \multicolumn{2}{c}{vegetable} & \\
+  \cmidrule(lr){2-3}\cmidrule(lr){4-5}\cmidrule(lr){6-6}\morecmidrules\cmidrule(lr){6-6}
+  & apple & orange & fruit3 & fruit4 & sum \\
+  \midrule
+  xiaoming & 2kg & 1kg & 1.5kg & 2kg & 6.5kg \\
+  xiaoming & 2kg & 1kg & 1.5kg & 2kg & 6.5kg \\
+  \bottomrule
+\end{tabular}
+
+% 表格4
+\subsubsection{Table4}
+% \toprule命令：表格顶部的粗线。
+% \midrule命令：表格中间的细分隔线。
+% \bottomrule命令：表格底部的粗线。
+\begin{tabular}{cccccc}
+  \toprule
+  num & name & sex & age & height/cm & weight/kg \\
+  \midrule
+  1 & zs & M & 16 & 163 & 50 \\
+  2 & wh & F & 15 & 159 & 47 \\
+  3 & le & M & 17 & 165 & 52 \\
+  \bottomrule
+\end{tabular}
+
+
+% 参考文献
+\subsection{my References}
+One reference about watermelon \cite{gostout1992clinical}       
+Another reference about watermelon \cite{rivero2001resistance}       
+
+\bibliographystyle{plain}       
+\bibliography{references}
+
+% \end{frontmatter}
+\end{document}
